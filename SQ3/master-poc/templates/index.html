@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lunarscope — Vulnerability Dashboard</title>
+  <!-- HTMX: auto-refresh the findings table every 30 seconds -->
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      min-height: 100vh;
+    }
+
+    /* ---- Header ---- */
+    header {
+      background: #161b22;
+      border-bottom: 1px solid #30363d;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    header h1 { font-size: 18px; font-weight: 600; color: #58a6ff; }
+    header span { font-size: 13px; color: #8b949e; }
+
+    /* ---- Layout ---- */
+    main { padding: 24px 32px; max-width: 1400px; }
+
+    /* ---- Summary cards ---- */
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+    .card .number { font-size: 32px; font-weight: 700; }
+    .card .label  { font-size: 12px; color: #8b949e; margin-top: 4px; text-transform: uppercase; letter-spacing: .05em; }
+    .card.critical .number { color: #f85149; }
+    .card.high     .number { color: #d29922; }
+    .card.medium   .number { color: #e3b341; }
+    .card.pass     .number { color: #3fb950; }
+    .card.servers  .number { color: #58a6ff; }
+
+    /* ---- Findings table ---- */
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #8b949e;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 12px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      overflow: hidden;
+      font-size: 13px;
+    }
+    th {
+      background: #21262d;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      color: #8b949e;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      border-bottom: 1px solid #30363d;
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #21262d;
+      vertical-align: middle;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #1c2128; }
+
+    /* Severity badge */
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .badge.critical { background: rgba(248,81,73,.15);  color: #f85149; border: 1px solid #f85149; }
+    .badge.high     { background: rgba(210,153,34,.15); color: #d29922; border: 1px solid #d29922; }
+    .badge.medium   { background: rgba(227,179,65,.12); color: #e3b341; border: 1px solid #e3b341; }
+    .badge.low      { background: rgba(88,166,255,.12); color: #58a6ff; border: 1px solid #58a6ff; }
+    .badge.pass     { background: rgba(63,185,80,.12);  color: #3fb950; border: 1px solid #3fb950; }
+
+    .empty {
+      text-align: center;
+      padding: 48px;
+      color: #8b949e;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🌙 Lunarscope</h1>
+  <span>Vulnerability Dashboard — PoC</span>
+</header>
+
+<main>
+
+  <!-- Summary bar -->
+  <div class="summary">
+    <div class="card servers">
+      <div class="number">{{ server_count }}</div>
+      <div class="label">Servers</div>
+    </div>
+    <div class="card critical">
+      <div class="number">{{ critical }}</div>
+      <div class="label">Critical</div>
+    </div>
+    <div class="card high">
+      <div class="number">{{ high }}</div>
+      <div class="label">High</div>
+    </div>
+    <div class="card medium">
+      <div class="number">{{ medium }}</div>
+      <div class="label">Medium</div>
+    </div>
+    <div class="card pass">
+      <div class="number">{{ passed }}</div>
+      <div class="label">Passed</div>
+    </div>
+  </div>
+
+  <!-- Findings table — HTMX refreshes this every 30s -->
+  <p class="section-title">Latest findings ({{ total }})</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Severity</th>
+        <th>Hostname</th>
+        <th>Scan type</th>
+        <th>Finding</th>
+        <th>Agent ID</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if results %}
+        {% for r in results %}
+        <tr>
+          <td><span class="badge {{ r.severity }}">{{ r.severity }}</span></td>
+          <td>{{ r.hostname }}</td>
+          <td>{{ r.scan_type }}</td>
+          <td>{{ r.finding }}</td>
+          <td style="color:#8b949e;font-size:11px;">{{ r.agent_id }}</td>
+          <td style="color:#8b949e;font-size:11px;">{{ r.created_at }}</td>
+        </tr>
+        {% endfor %}
+      {% else %}
+        <tr><td colspan="6" class="empty">No findings yet — send a scan result via POST /api/scan-result</td></tr>
+      {% endif %}
+    </tbody>
+  </table>
+
+</main>
+</body>
+</html>

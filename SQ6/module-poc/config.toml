@@ -1,0 +1,22 @@
+# ================================================================
+# Lunarscope Agent configuration
+#
+# Add a new module by adding a [modules.<name>] section and
+# setting enabled = true.  No changes to lib.rs or main.rs needed.
+# ================================================================
+
+[agent]
+hostname = "server-workshop"
+
+[modules.package_scan]
+enabled = true
+
+[modules.ssh_scan]
+enabled = true
+
+# Third module — added without touching any core file
+[modules.firewall_scan]
+enabled = true
+
+[modules.shadow_scan]
+enabled = true
