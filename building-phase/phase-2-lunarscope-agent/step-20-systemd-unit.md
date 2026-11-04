@@ -66,7 +66,18 @@ WantedBy=multi-user.target
 
 ### Installation (as tested)
 
+Requirements on the server:
+
+- Ubuntu 24.04 (the binary links against its glibc, see step 19).
+- The **`ca-certificates`** package. The agent loads the system's trusted
+  CAs to verify the master's TLS certificate; without them it stops at
+  startup with `could not create HTTP client: … (is the ca-certificates
+  package installed?)`. A normal Ubuntu server install has it; minimal
+  images (containers) may not. Added in agent v0.1.1, see
+  [fix-0.1.1-ca-certificates.md](fix-0.1.1-ca-certificates.md).
+
 ```bash
+sudo apt-get install ca-certificates
 sudo useradd --system --no-create-home --shell /usr/sbin/nologin lunarscope
 sudo install -m 755 lunarscope-agent /usr/local/bin/lunarscope-agent
 sudo install -d -m 750 -o root -g lunarscope /etc/lunarscope

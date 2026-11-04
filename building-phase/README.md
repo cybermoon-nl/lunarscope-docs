@@ -14,6 +14,7 @@ it was verified.
 ## Re-checks
 
 - [2026-11-04 — date check and full re-test](retest-2026-11-04.md): 219/219 tests pass on Fedora and Ubuntu 24.04; one small agent finding (unclear error without `ca-certificates`).
+- [Agent v0.1.1 — clear error without `ca-certificates`](phase-2-lunarscope-agent/fix-0.1.1-ca-certificates.md): fix for the re-test finding; own error kind, full error chain and a hint.
 
 ## Progress
 
