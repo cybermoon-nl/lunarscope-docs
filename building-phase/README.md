@@ -11,6 +11,10 @@ it was verified.
 | 3 | `lunarscope-master` | 22 – 34 |
 | 4 | CI/CD (agent + master) | 35 – 40 |
 
+## Re-checks
+
+- [2026-11-04 — date check and full re-test](retest-2026-11-04.md): 219/219 tests pass on Fedora and Ubuntu 24.04; one small agent finding (unclear error without `ca-certificates`).
+
 ## Progress
 
 ### Phase 1 — `lunarscope-modules`
@@ -26,7 +30,7 @@ it was verified.
 | 7 | `package_scan` module | Done | [step-07](phase-1-lunarscope-modules/step-07-package-scan.md) |
 | 8 | `mod.rs` + public exports | Done | [step-08](phase-1-lunarscope-modules/step-08-mod-exports.md) |
 | 9 | Unit tests per module | Done | [step-09](phase-1-lunarscope-modules/step-09-unit-tests.md), [testing](phase-1-lunarscope-modules/testing.md) |
-| 10 | `cargo test` green + tag v0.1.0 | Done — tagged `v0.1.0` | [step-10](phase-1-lunarscope-modules/step-10-release-v0.1.0.md) |
+| 10 | `cargo test` green + tag v0.1.0 | Done — tagged `v0.1.0` on 2026-10-17 | [step-10](phase-1-lunarscope-modules/step-10-release-v0.1.0.md) |
 
 ### Phase 2 — `lunarscope-agent`
 
@@ -42,7 +46,7 @@ it was verified.
 | 18 | Error handling | Done | [step-18](phase-2-lunarscope-agent/step-18-error-handling.md) |
 | 19 | Release binary + size/memory | Done | [step-19](phase-2-lunarscope-agent/step-19-release-build.md) |
 | 20 | systemd unit file | Done | [step-20](phase-2-lunarscope-agent/step-20-systemd-unit.md) |
-| 21 | `cargo test` green + tag v0.1.0 | Checks green — commit + tag by user (still open) | [step-21](phase-2-lunarscope-agent/step-21-release-v0.1.0.md), [testing](phase-2-lunarscope-agent/testing.md) |
+| 21 | `cargo test` green + tag v0.1.0 | Done — tagged `v0.1.0` on 2026-11-04 | [step-21](phase-2-lunarscope-agent/step-21-release-v0.1.0.md), [testing](phase-2-lunarscope-agent/testing.md) |
 
 ### Phase 3 — `lunarscope-master`
 
@@ -60,4 +64,4 @@ it was verified.
 | 31 | HTMX refresh | Done | [step-31](phase-3-lunarscope-master/step-31-htmx-refresh.md) |
 | 32 | Axum router + serve | Done | [step-32](phase-3-lunarscope-master/step-32-router-and-server.md) |
 | 33 | End-to-end test | Done | [step-33](phase-3-lunarscope-master/step-33-end-to-end-test.md) |
-| 34 | `cargo test` green + tag v0.1.0 | Checks green — commit + tag by user | [step-34](phase-3-lunarscope-master/step-34-release-v0.1.0.md) |
+| 34 | `cargo test` green + tag v0.1.0 | Done — tagged `v0.1.0` on 2026-11-04 | [step-34](phase-3-lunarscope-master/step-34-release-v0.1.0.md) |

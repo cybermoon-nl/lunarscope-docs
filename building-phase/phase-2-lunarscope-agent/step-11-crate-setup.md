@@ -80,6 +80,8 @@ agent is **not** affected, because it fetches the `v0.1.0` tag from GitHub.
 The change was left as it is; revert it with
 `git -C repos/lunarscope-modules checkout Cargo.toml` if it was not intentional.
 
+*Update 2026-11-04: the change was reverted; the local checkout builds again.*
+
 ## Next step
 
 Step 12 — `Config` struct + loading.

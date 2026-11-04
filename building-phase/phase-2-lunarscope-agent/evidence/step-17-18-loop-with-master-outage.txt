@@ -1,5 +1,6 @@
 Agent loop (interval_seconds = 10) against a local fake master on 127.0.0.1:38080.
-Master down at start, started after 12 s, stopped after 23 s. Times added by the test script.
+Master down at start, started after 12 s, stopped after 23 s. Times added by the test script,
+in local time on 2026-10-29 (CET, UTC+1): 13:16:19 CET = 12:16:19 UTC.
 
 13:16:19 start agent (master DOWN)
 13:16:19 lunarscope-agent 0.1.0 started: modules [ssh_scan, firewall_scan, package_scan], interval 10 s, master http://127.0.0.1:38080

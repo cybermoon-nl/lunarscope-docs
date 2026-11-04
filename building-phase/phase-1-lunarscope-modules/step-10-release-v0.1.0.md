@@ -2,7 +2,7 @@
 
 **Repo:** `lunarscope-modules`
 **Date:** 2026-10-17 (checks re-run after adding tests for steps 1–4)
-**Status:** All checks green — commit and tag are done by hand (see below)
+**Status:** Done — committed as `c8015c3` and tagged `v0.1.0` on 2026-10-17 17:57 (CEST), pushed to GitHub
 
 ## Goal
 

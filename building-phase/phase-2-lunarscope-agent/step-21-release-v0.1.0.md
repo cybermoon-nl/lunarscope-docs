@@ -2,7 +2,7 @@
 
 **Repo:** `lunarscope-agent`
 **Date:** 2026-10-29
-**Status:** All checks green — commit and tag are done by hand (see below)
+**Status:** Done — checks on 2026-10-29; committed as `0188054` and tagged `v0.1.0` on 2026-11-04 12:05 (CET), pushed to GitHub
 
 ## Final checks
 

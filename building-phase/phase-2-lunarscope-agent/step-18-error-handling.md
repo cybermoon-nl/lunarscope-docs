@@ -70,7 +70,7 @@ fallible calls use `?`, `map_err`, `unwrap_or`/`unwrap_or_else` or a `match`.
 
 ([evidence](evidence/step-17-18-loop-with-master-outage.txt))
 
-| Time | Event | Agent |
+| Time (2026-10-29, CET) | Event | Agent |
 |------|-------|-------|
 | 13:16:19 | started, master **down** | "could not reach master", `not sent 3`, keeps running |
 | 13:16:29 | master still down | same, keeps running |

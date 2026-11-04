@@ -15,7 +15,8 @@ Dashboard, right after loading (JavaScript in the page):
   badges in #findings: ["Pass"]
   window.__loadedAt set as a marker (lost on a full reload)
 
-11:41:11  Critical result for firewall_ufw_active written directly into the
+11:41:11  (local time, CET = 10:41:11 UTC)
+          Critical result for firewall_ufw_active written directly into the
           database (scan_results + latest_results) with sqlite3
 
 ~35 s later, no reload:

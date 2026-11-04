@@ -2,7 +2,7 @@
 
 **Repo:** `lunarscope-master`
 **Date:** 2026-11-04
-**Status:** All checks green — commit and tag are done by hand (see below)
+**Status:** Done — committed as `3ee83ee` and tagged `v0.1.0` on 2026-11-04 12:12 (CET), pushed to GitHub. Docs committed as `7ec4a5a` (12:27).
 
 ## Final checks
 
@@ -71,7 +71,9 @@ static/htmx.min.js, static/htmx.LICENSE
 templates/base.html, dashboard.html, server.html, not_found.html
 ```
 
-## State of the repositories (2026-11-04, after `git fetch`)
+## State of the repositories (2026-11-04, after `git fetch`, before the release commits)
+
+*Update 2026-11-04: all points in this table were resolved the same day. Agent and master are committed and tagged `v0.1.0`, the docs are committed, and the `edition = "2026"` change in `lunarscope-modules` was reverted. All four repos are clean and in sync with GitHub.*
 
 | Repo | Local commits | GitHub ahead by | Uncommitted | Tag |
 |------|---------------|-----------------|-------------|-----|
@@ -136,7 +138,7 @@ git -C repos/lunarscope-master ls-remote --tags origin
 
 Both should list `refs/tags/v0.1.0`.
 
-### `lunarscope-modules`: uncommitted `edition = "2026"`
+### `lunarscope-modules`: uncommitted `edition = "2026"` (resolved: reverted on 2026-11-04)
 
 The local `lunarscope-modules/Cargo.toml` still has an uncommitted change
 from 2026-10-20: `edition = "2026"`. cargo 1.98 doesn't know that edition,

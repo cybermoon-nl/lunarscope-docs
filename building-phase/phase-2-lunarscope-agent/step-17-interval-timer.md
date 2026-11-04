@@ -70,7 +70,7 @@ flags.
 
 - `default_args`, `config_and_once_flags`, `bad_args_are_errors` (unit tests)
   cover argument parsing.
-- **Manual loop run** with `interval_seconds = 10`: cycles at 13:16:19,
+- **Manual loop run** with `interval_seconds = 10` (2026-10-29, local time CET): cycles at 13:16:19,
   :29, :39, :49 — exactly 10 s apart, the first one immediately at startup
   ([evidence](evidence/step-17-18-loop-with-master-outage.txt)).
 - Under systemd (step 20), cycles were logged every 10 s for the whole test.
