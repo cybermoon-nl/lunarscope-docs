@@ -1,0 +1,26 @@
+[
+  {
+    "check_name": "ssh_config_readable",
+    "severity": "Low",
+    "description": "Could not read /etc/ssh/sshd_config: No such file or directory (os error 2)",
+    "remediation": "Make sure OpenSSH server is installed and the agent can read its config"
+  },
+  {
+    "check_name": "firewall_ufw_active",
+    "severity": "Low",
+    "description": "Could not check the UFW status with systemctl: No such file or directory (os error 2)",
+    "remediation": "Make sure systemd is available on this server"
+  },
+  {
+    "check_name": "package_security_updates",
+    "severity": "High",
+    "description": "2 pending security update(s): libsystemd0, libudev1",
+    "remediation": "Run 'sudo apt update && sudo apt upgrade'"
+  },
+  {
+    "check_name": "package_other_updates",
+    "severity": "Pass",
+    "description": "No pending regular updates",
+    "remediation": null
+  }
+]

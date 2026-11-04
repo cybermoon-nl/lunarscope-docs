@@ -1,0 +1,37 @@
+Master release binary, run by hand (2026-11-04)
+===============================================
+
+First attempt on the default-style port 127.0.0.1:3000:
+  lunarscope-master: could not listen on 127.0.0.1:3000: Address already in use (os error 98)
+  -> port 3000 is already used on the development machine by another local
+     program (it answers {"detail":"Method Not Allowed"}). The master refused
+     to start, as intended. The curl requests of that attempt reached the
+     other program and were rejected with 405; they contained only a
+     throw-away test token generated for that run.
+
+Second attempt on a free port (127.0.0.1:38132), with a fresh admin token:
+
+$ lunarscope-master --db ./master.db --listen 127.0.0.1:38132 --admin-token-file ./admin-token
+lunarscope-master 0.1.0: database ./master.db ready, 0 registered agent(s), agent registration enabled
+listening on http://127.0.0.1:38132
+
+GET /                           -> 200 text/html; charset=utf-8, 2322 bytes
+GET /static/htmx.min.js         -> 200 text/javascript; charset=utf-8, 52182 bytes
+POST /api/register-agent        -> 201
+     agent_id 1ae0cf3c-476f-4ac3-904f-1454dcc7dcd3, api_key lsk_b3b6… (68 chars)
+POST /api/scan-result (fresh)   -> 200
+POST /api/scan-result (-120 s)  -> 400 {"error":"timestamp 1793789106 is more than 60 s from server time 1793789226"}
+POST /api/scan-result (bad key) -> 401
+GET /  contains  <a href="/server/1ae0cf3c-476f-4ac3-904f-1454dcc7dcd3">web-01</a> and the High badge
+GET /server/1ae0cf3c-…          -> 200
+
+Second master on the same port:
+  lunarscope-master: could not listen on 127.0.0.1:38132: Address already in use (os error 98)   (exit 1)
+
+Running master (/proc/<pid>/status):
+  VmHWM: 8816 kB
+  VmRSS: 8816 kB
+  Threads: 19
+
+kill -TERM <pid>  ->  log "shutting down", "stopped"; exit code 0
+Release binary size: 8,057,624 bytes

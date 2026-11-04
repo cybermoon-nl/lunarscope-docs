@@ -1,0 +1,14 @@
+[
+  {
+    "check_name": "package_security_updates",
+    "severity": "Pass",
+    "description": "No pending security updates",
+    "remediation": null
+  },
+  {
+    "check_name": "package_other_updates",
+    "severity": "Pass",
+    "description": "No pending regular updates",
+    "remediation": null
+  }
+]

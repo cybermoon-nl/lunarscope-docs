@@ -1,0 +1,45 @@
+Ubuntu 24.04 container booted with systemd (podman --systemd=always), openssh-server + ufw installed.
+Agent installed with the documented steps; fake master running as a transient unit on 127.0.0.1:38080.
+
+$ systemctl status lunarscope-agent
+● lunarscope-agent.service - Lunarscope security scan agent
+     Loaded: loaded (/etc/systemd/system/lunarscope-agent.service; enabled; preset: enabled)
+     Active: active (running) since Thu 2026-10-29 12:25:01 UTC; 22s ago
+       Docs: https://github.com/cybermoon-nl/lunarscope-agent
+   Main PID: 227 (lunarscope-agen)
+      Tasks: 1 (limit: 307)
+
+$ journalctl -u lunarscope-agent -o cat
+Started lunarscope-agent.service - Lunarscope security scan agent.
+lunarscope-agent.service: ProtectHostname=yes is configured, but UTS namespace setup is prohibited (container manager?), ignoring namespace setup.
+lunarscope-agent 0.1.0 started: modules [ssh_scan, firewall_scan, package_scan], interval 10 s, master http://127.0.0.1:38080
+scan cycle: 5 finding(s) in 1227 ms; accepted 5, rejected 0, not sent 0
+scan cycle: 5 finding(s) in 1205 ms; accepted 5, rejected 0, not sent 0
+scan cycle: 5 finding(s) in 1190 ms; accepted 5, rejected 0, not sent 0
+
+Findings received by the fake master (first cycle):
+200 ssh_scan ssh_permit_root_login Pass - Root login over SSH only allows keys (PermitRootLogin prohibit-password)
+200 ssh_scan ssh_password_authentication Medium - SSH accepts password logins (PasswordAuthentication yes)
+200 firewall_scan firewall_ufw_active Pass - UFW firewall is active
+200 package_scan package_security_updates High - 2 pending security update(s): liblzma5, zlib1g
+200 package_scan package_other_updates Pass - No pending regular updates
+total requests after 22 s: 15
+
+$ ps -o user=,pid=,rss=,cmd= -C lunarscope-agent
+lunarsc+     227  4848 /usr/local/bin/lunarscope-agent --config /etc/lunarscope/config.toml
+
+$ ufw disable   (then wait one cycle)
+firewall finding: High - UFW service is running but the firewall is disabled (ENABLED=no in /etc/ufw/ufw.conf)
+$ systemctl is-active ufw
+active
+
+Broken config (modules.enabled contains "package-scan"), systemctl restart, wait 65 s:
+$ systemctl show lunarscope-agent -p ActiveState -p SubState -p NRestarts -p Result
+Result=exit-code
+NRestarts=4
+ActiveState=failed
+SubState=failed
+journal (counted):
+      5 lunarscope-agent.service: Failed with result 'exit-code'.
+      1 lunarscope-agent.service: Start request repeated too quickly.
+      4 lunarscope-agent: unknown module(s) in modules.enabled: package-scan; available: ssh_scan, firewall_scan, package_scan

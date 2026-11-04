@@ -1,0 +1,17 @@
+NOTE: This is only a simulation!
+      apt-get needs root privileges for real execution.
+      Keep also in mind that locking is deactivated,
+      so don't depend on the relevance to the real current situation!
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  apt libsystemd0 libudev1
+3 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Inst libsystemd0 [255.4-1ubuntu8.17] (255.4-1ubuntu8.18 Ubuntu:24.04/noble-security [amd64])
+Conf libsystemd0 (255.4-1ubuntu8.18 Ubuntu:24.04/noble-security [amd64])
+Inst apt [2.7.14build2] (2.8.3 Ubuntu:24.04/noble-updates [amd64])
+Conf apt (2.8.3 Ubuntu:24.04/noble-updates [amd64])
+Inst libudev1 [255.4-1ubuntu8.17] (255.4-1ubuntu8.18 Ubuntu:24.04/noble-security [amd64])
+Conf libudev1 (255.4-1ubuntu8.18 Ubuntu:24.04/noble-security [amd64])

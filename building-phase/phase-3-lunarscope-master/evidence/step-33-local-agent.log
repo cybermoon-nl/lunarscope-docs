@@ -1,0 +1,13 @@
+lunarscope-agent 0.1.0 started: modules [ssh_scan, firewall_scan, package_scan], interval 10 s, master http://127.0.0.1:38133
+scan cycle: 3 finding(s) in 3 ms; accepted 3, rejected 0, not sent 0
+scan cycle: 3 finding(s) in 5 ms; accepted 3, rejected 0, not sent 0
+scan cycle: 3 finding(s) in 10 ms; accepted 3, rejected 0, not sent 0
+scan cycle: 3 finding(s) in 8 ms; accepted 3, rejected 0, not sent 0
+scan cycle: 3 finding(s) in 5 ms; accepted 3, rejected 0, not sent 0
+could not reach master at http://127.0.0.1:38133/api/scan-result: error sending request for url (http://127.0.0.1:38133/api/scan-result): client error (Connect): tcp connect error: Connection refused (os error 111)
+scan cycle: 3 finding(s) in 11 ms; accepted 0, rejected 0, not sent 3
+scan cycle: 3 finding(s) in 6 ms; accepted 3, rejected 0, not sent 0
+scan cycle: 3 finding(s) in 9 ms; accepted 3, rejected 0, not sent 0
+scan cycle: 3 finding(s) in 10 ms; accepted 3, rejected 0, not sent 0
+scan cycle: 3 finding(s) in 8 ms; accepted 3, rejected 0, not sent 0
+scan cycle: 3 finding(s) in 5 ms; accepted 3, rejected 0, not sent 0

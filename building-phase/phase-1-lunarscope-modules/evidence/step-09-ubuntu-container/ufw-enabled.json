@@ -1,0 +1,32 @@
+[
+  {
+    "check_name": "ssh_permit_root_login",
+    "severity": "Pass",
+    "description": "Root login over SSH only allows keys (PermitRootLogin prohibit-password)",
+    "remediation": null
+  },
+  {
+    "check_name": "ssh_password_authentication",
+    "severity": "Medium",
+    "description": "SSH accepts password logins (PasswordAuthentication yes)",
+    "remediation": "Set 'PasswordAuthentication no' in /etc/ssh/sshd_config and use SSH keys"
+  },
+  {
+    "check_name": "firewall_ufw_active",
+    "severity": "Low",
+    "description": "Could not check the UFW status with systemctl: System has not been booted with systemd as init system (PID 1). Can't operate.\nFailed to connect to bus: Host is down",
+    "remediation": "Make sure systemd is available on this server"
+  },
+  {
+    "check_name": "package_security_updates",
+    "severity": "Pass",
+    "description": "No pending security updates",
+    "remediation": null
+  },
+  {
+    "check_name": "package_other_updates",
+    "severity": "Pass",
+    "description": "No pending regular updates",
+    "remediation": null
+  }
+]

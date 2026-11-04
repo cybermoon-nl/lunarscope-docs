@@ -1,0 +1,19 @@
+id                                    hostname      registered           last_seen          
+------------------------------------  ------------  -------------------  -------------------
+e85b7035-3c28-41b5-812d-501d7c15f465  4e9cbc10fda8  2026-11-04 10:51:05  2026-11-04 10:52:16
+scan_type      check_name                   severity  description                                                               checked            
+-------------  ---------------------------  --------  ------------------------------------------------------------------------  -------------------
+firewall_scan  firewall_ufw_active          Pass      UFW firewall is active                                                    2026-11-04 10:52:16
+package_scan   package_other_updates        Pass      No pending regular updates                                                2026-11-04 10:52:16
+package_scan   package_security_updates     Pass      No pending security updates                                               2026-11-04 10:52:16
+ssh_scan       ssh_password_authentication  Medium    SSH accepts password logins (PasswordAuthentication yes)                  2026-11-04 10:52:16
+ssh_scan       ssh_permit_root_login        Pass      Root login over SSH only allows keys (PermitRootLogin prohibit-password)  2026-11-04 10:52:16
+check_name                   severity  rows
+---------------------------  --------  ----
+firewall_ufw_active          High      4   
+firewall_ufw_active          Pass      4   
+package_other_updates        Pass      8   
+package_security_updates     High      4   
+package_security_updates     Pass      4   
+ssh_password_authentication  Medium    8   
+ssh_permit_root_login        Pass      8   

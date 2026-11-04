@@ -1,0 +1,9 @@
+lunarscope-master 0.1.0: database ./master.db ready, 0 registered agent(s), agent registration enabled
+listening on http://127.0.0.1:38133
+registered agent 32d6b089-e810-4435-8484-438c5a270109 (fedora)
+shutting down
+stopped
+lunarscope-master 0.1.0: database ./master.db ready, 1 registered agent(s), agent registration enabled
+listening on http://127.0.0.1:38133
+shutting down
+stopped

@@ -1,0 +1,31 @@
+htmx download and verification (2026-11-04, with the user's permission)
+=======================================================================
+
+Source: npm registry, package "htmx.org" (official htmx distribution)
+  dist-tag latest : 2.0.11
+  chosen version  : 2.0.11 (newest 2.x release)
+  published       : 2026-09-22T20:20:43.983Z
+  tarball         : https://registry.npmjs.org/htmx.org/-/htmx.org-2.0.11.tgz
+  license         : 0BSD
+  npm integrity   : sha512-Thx/WtpeOQqSrqBCw/A1cwGJGg4UrVa3+sW0GmrM3p4gJgO89ecH4qtbnyzDDWFvBTqjnIMCgELTNt636dtamA==
+
+Tarball: 217,700 bytes
+SHA-512 of the downloaded tarball (openssl dgst -sha512 -binary | base64):
+  sha512-Thx/WtpeOQqSrqBCw/A1cwGJGg4UrVa3+sW0GmrM3p4gJgO89ecH4qtbnyzDDWFvBTqjnIMCgELTNt636dtamA==
+  -> CHECKSUM OK (identical to npm's published integrity)
+
+Extracted (only these files):
+  package/dist/htmx.min.js -> lunarscope-master/static/htmx.min.js   (52,182 bytes)
+  package/LICENSE          -> lunarscope-master/static/htmx.LICENSE  (Zero-Clause BSD)
+
+SHA-256 of static/htmx.min.js:
+  d6fdc75f204e6bdefa99b69bf1e6d4ac69b8a364f77929f45c13476b4000f717
+(pinned in the test static_files::tests::embedded_file_is_htmx_2_0_11)
+File reports: version:"2.0.11"
+
+To repeat the verification:
+  curl -sSfO https://registry.npmjs.org/htmx.org/-/htmx.org-2.0.11.tgz
+  echo "sha512-$(openssl dgst -sha512 -binary htmx.org-2.0.11.tgz | base64 -w0)"
+  # must equal the npm integrity above
+  tar -xzOf htmx.org-2.0.11.tgz package/dist/htmx.min.js | sha256sum
+  # must equal d6fdc75f…f717

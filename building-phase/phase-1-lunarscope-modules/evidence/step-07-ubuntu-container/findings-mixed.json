@@ -1,0 +1,14 @@
+[
+  {
+    "check_name": "package_security_updates",
+    "severity": "High",
+    "description": "2 pending security update(s): libsystemd0, libudev1",
+    "remediation": "Run 'sudo apt update && sudo apt upgrade'"
+  },
+  {
+    "check_name": "package_other_updates",
+    "severity": "Low",
+    "description": "1 pending regular update(s): apt",
+    "remediation": "Run 'sudo apt update && sudo apt upgrade'"
+  }
+]

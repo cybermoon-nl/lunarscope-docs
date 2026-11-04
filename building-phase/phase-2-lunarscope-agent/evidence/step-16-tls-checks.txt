@@ -1,0 +1,16 @@
+Agent --once against a local HTTPS fake master (python ssl) at https://localhost:38443,
+server certificate for "localhost" signed by a throw-away test CA.
+
+== TLS 1.3, CA not trusted
+could not reach master at https://localhost:38443/api/scan-result: error sending request for url (https://localhost:38443/api/scan-result): client error (Connect): invalid peer certificate: UnknownIssuer
+scan cycle: 3 finding(s) in 3 ms; accepted 0, rejected 0, not sent 3
+requests received: 0
+
+== TLS 1.2 only, CA trusted (SSL_CERT_FILE=ca.pem)
+could not reach master at https://localhost:38443/api/scan-result: error sending request for url (https://localhost:38443/api/scan-result): client error (Connect): received fatal alert: ProtocolVersion
+scan cycle: 3 finding(s) in 3 ms; accepted 0, rejected 0, not sent 3
+requests received: 0
+
+== TLS 1.3, CA trusted (SSL_CERT_FILE=ca.pem)
+scan cycle: 3 finding(s) in 3 ms; accepted 3, rejected 0, not sent 0
+requests received: 3

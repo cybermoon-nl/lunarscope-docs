@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>4e9cbc10fda8 · Lunarscope</title>
+    <style>
+        :root { --bg: #f6f7f9; --card: #fff; --text: #1d2330; --muted: #5d6675; --line: #dde1e7;
+                --critical: #8b0000; --high: #c0392b; --medium: #b9770e; --low: #2e6da4; --pass: #1e7e34; }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); }
+        nav { display: flex; gap: 1.5rem; align-items: center; padding: .75rem 1.5rem; background: #1d2330; }
+        nav a { color: #fff; text-decoration: none; }
+        nav .brand { font-weight: 700; font-size: 1.1rem; }
+        main { max-width: 72rem; margin: 0 auto; padding: 1.5rem; }
+        h1 { font-size: 1.4rem; margin: 0 0 1rem; }
+        .muted { color: var(--muted); }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; background: var(--card); }
+        th, td { text-align: left; padding: .5rem .75rem; border-bottom: 1px solid var(--line); white-space: nowrap; }
+        th { font-size: .85rem; color: var(--muted); }
+        .count { text-align: right; font-variant-numeric: tabular-nums; }
+        .badge { display: inline-block; padding: .1rem .5rem; border-radius: .25rem; color: #fff; font-size: .8rem; }
+        .sev-Critical { background: var(--critical); } .sev-High { background: var(--high); }
+        .sev-Medium { background: var(--medium); } .sev-Low { background: var(--low); }
+        .sev-Pass { background: var(--pass); }
+        .stale { color: var(--high); }
+        .empty { padding: 2rem; text-align: center; background: var(--card); }
+        td.text { white-space: normal; min-width: 16rem; }
+    </style>
+    <script src="/static/htmx.min.js" defer></script>
+</head>
+<body>
+    <nav>
+        <a class="brand" href="/">Lunarscope</a>
+        <a href="/">Dashboard</a>
+    </nav>
+    <main>
+        
+<p><a href="/">&larr; All servers</a></p>
+<h1>4e9cbc10fda8</h1>
+
+
+
+<section id="findings" hx-get="/server/e85b7035-3c28-41b5-812d-501d7c15f465" hx-trigger="every 30s" hx-swap="outerHTML">
+    <p class="muted">
+        Agent e85b7035-3c28-41b5-812d-501d7c15f465 · registered 2026-11-04 10:51 UTC ·
+        last seen <span>2026-11-04 10:51 UTC</span>
+    </p>
+    
+    <p>
+        <span class="badge sev-Critical">Critical 0</span>
+        <span class="badge sev-High">High 0</span>
+        <span class="badge sev-Medium">Medium 1</span>
+        <span class="badge sev-Low">Low 0</span>
+        <span class="badge sev-Pass">Pass 4</span>
+    </p>
+    <div class="table-wrap">
+    <table>
+        <thead>
+            <tr>
+                <th>Severity</th>
+                <th>Module</th>
+                <th>Check</th>
+                <th>Finding</th>
+                <th>Remediation</th>
+                <th>Checked</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td><span class="badge sev-Medium">Medium</span></td>
+                <td>ssh_scan</td>
+                <td>ssh_password_authentication</td>
+                <td class="text">SSH accepts password logins (PasswordAuthentication yes)</td>
+                <td class="text">Set &#39;PasswordAuthentication no&#39; in /etc/ssh/sshd_config and use SSH keys</td>
+                <td>2026-11-04 10:51 UTC</td>
+            </tr>
+            
+            <tr>
+                <td><span class="badge sev-Pass">Pass</span></td>
+                <td>firewall_scan</td>
+                <td>firewall_ufw_active</td>
+                <td class="text">UFW firewall is active</td>
+                <td class="text"><span class="muted">&mdash;</span></td>
+                <td>2026-11-04 10:51 UTC</td>
+            </tr>
+            
+            <tr>
+                <td><span class="badge sev-Pass">Pass</span></td>
+                <td>package_scan</td>
+                <td>package_other_updates</td>
+                <td class="text">No pending regular updates</td>
+                <td class="text"><span class="muted">&mdash;</span></td>
+                <td>2026-11-04 10:51 UTC</td>
+            </tr>
+            
+            <tr>
+                <td><span class="badge sev-Pass">Pass</span></td>
+                <td>package_scan</td>
+                <td>package_security_updates</td>
+                <td class="text">No pending security updates</td>
+                <td class="text"><span class="muted">&mdash;</span></td>
+                <td>2026-11-04 10:51 UTC</td>
+            </tr>
+            
+            <tr>
+                <td><span class="badge sev-Pass">Pass</span></td>
+                <td>ssh_scan</td>
+                <td>ssh_permit_root_login</td>
+                <td class="text">Root login over SSH only allows keys (PermitRootLogin prohibit-password)</td>
+                <td class="text"><span class="muted">&mdash;</span></td>
+                <td>2026-11-04 10:51 UTC</td>
+            </tr>
+            
+        </tbody>
+    </table>
+    </div>
+    
+</section>
+
+
+    </main>
+</body>
+</html>

@@ -1,0 +1,16 @@
+### all three modules
+binary:        ./lunarscope-agent
+size:          3208664 bytes (3.1M)
+--once time:   1308 ms average over 10 runs (scan + send)
+--once peak:   103304 kB max RSS, including child processes (apt-get, systemctl)
+agent RSS:     4568 kB now, 4568 kB peak, 1 thread(s) (loop, after 15 s)
+massif heap:   591 kB peak heap (--once)
+### without package_scan
+binary:        ./lunarscope-agent
+size:          3208664 bytes (3.1M)
+--once time:   9 ms average over 10 runs (scan + send)
+--once peak:   6120 kB max RSS, including child processes (apt-get, systemctl)
+agent RSS:     4564 kB now, 4564 kB peak, 1 thread(s) (loop, after 15 s)
+massif heap:   591 kB peak heap (--once)
+apt-get -s upgrade alone:
+1.50 s, 104000 kB max RSS

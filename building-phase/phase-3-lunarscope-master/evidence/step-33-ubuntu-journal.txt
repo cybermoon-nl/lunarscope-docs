@@ -1,0 +1,22 @@
+2026-11-04T10:51:05+00:00 4e9cbc10fda8 systemd[1]: Started lunarscope-master.service - Lunarscope master node.
+2026-11-04T10:51:05+00:00 4e9cbc10fda8 lunarscope-master[217]: lunarscope-master 0.1.0: database /var/lib/lunarscope/master.db ready, 0 registered agent(s), agent registration enabled
+2026-11-04T10:51:05+00:00 4e9cbc10fda8 lunarscope-master[217]: listening on http://127.0.0.1:3000
+2026-11-04T10:51:05+00:00 4e9cbc10fda8 lunarscope-master[217]: registered agent e85b7035-3c28-41b5-812d-501d7c15f465 (4e9cbc10fda8)
+2026-11-04T10:51:05+00:00 4e9cbc10fda8 systemd[1]: Started lunarscope-agent.service - Lunarscope security scan agent.
+2026-11-04T10:51:05+00:00 4e9cbc10fda8 lunarscope-agent[262]: lunarscope-agent 0.1.0 started: modules [ssh_scan, firewall_scan, package_scan], interval 10 s, master http://127.0.0.1:3000
+2026-11-04T10:51:07+00:00 4e9cbc10fda8 lunarscope-agent[262]: scan cycle: 5 finding(s) in 1229 ms; accepted 5, rejected 0, not sent 0
+2026-11-04T10:51:17+00:00 4e9cbc10fda8 lunarscope-agent[262]: scan cycle: 5 finding(s) in 1263 ms; accepted 5, rejected 0, not sent 0
+2026-11-04T10:51:27+00:00 4e9cbc10fda8 lunarscope-agent[262]: scan cycle: 5 finding(s) in 1219 ms; accepted 5, rejected 0, not sent 0
+2026-11-04T10:51:37+00:00 4e9cbc10fda8 lunarscope-agent[262]: scan cycle: 5 finding(s) in 1242 ms; accepted 5, rejected 0, not sent 0
+2026-11-04T10:51:46+00:00 4e9cbc10fda8 lunarscope-agent[262]: scan cycle: 5 finding(s) in 925 ms; accepted 5, rejected 0, not sent 0
+2026-11-04T10:51:47+00:00 4e9cbc10fda8 systemd[1]: Stopping lunarscope-master.service - Lunarscope master node...
+2026-11-04T10:51:47+00:00 4e9cbc10fda8 lunarscope-master[217]: shutting down
+2026-11-04T10:51:47+00:00 4e9cbc10fda8 lunarscope-master[217]: stopped
+2026-11-04T10:51:47+00:00 4e9cbc10fda8 systemd[1]: lunarscope-master.service: Deactivated successfully.
+2026-11-04T10:51:47+00:00 4e9cbc10fda8 systemd[1]: Stopped lunarscope-master.service - Lunarscope master node.
+2026-11-04T10:51:47+00:00 4e9cbc10fda8 systemd[1]: Started lunarscope-master.service - Lunarscope master node.
+2026-11-04T10:51:47+00:00 4e9cbc10fda8 lunarscope-master[560]: lunarscope-master 0.1.0: database /var/lib/lunarscope/master.db ready, 1 registered agent(s), agent registration enabled
+2026-11-04T10:51:47+00:00 4e9cbc10fda8 lunarscope-master[560]: listening on http://127.0.0.1:3000
+2026-11-04T10:51:56+00:00 4e9cbc10fda8 lunarscope-agent[262]: scan cycle: 5 finding(s) in 906 ms; accepted 5, rejected 0, not sent 0
+2026-11-04T10:52:06+00:00 4e9cbc10fda8 lunarscope-agent[262]: scan cycle: 5 finding(s) in 899 ms; accepted 5, rejected 0, not sent 0
+2026-11-04T10:52:16+00:00 4e9cbc10fda8 lunarscope-agent[262]: scan cycle: 5 finding(s) in 881 ms; accepted 5, rejected 0, not sent 0

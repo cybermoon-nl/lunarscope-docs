@@ -1,0 +1,39 @@
+Live HTMX refresh check (2026-11-04)
+====================================
+
+Setup: the master's router (app()) served on 127.0.0.1:38131 by a temporary
+test (removed afterwards), with a file database holding agent a1 "web-01" and
+one Pass result. Browser: the Claude desktop browser pane.
+
+$ curl -s -D - -o /dev/null -H 'HX-Request: true' http://127.0.0.1:38131/
+HTTP/1.1 200 OK
+vary: HX-Request
+cache-control: no-store
+
+Dashboard, right after loading (JavaScript in the page):
+  typeof htmx = "object", htmx.version = "2.0.11"
+  badges in #findings: ["Pass"]
+  window.__loadedAt set as a marker (lost on a full reload)
+
+11:41:11  Critical result for firewall_ufw_active written directly into the
+          database (scan_results + latest_results) with sqlite3
+
+~35 s later, no reload:
+  { "sameDocument": true, "swaps": 1, "badges": ["Critical"],
+    "sections": 1, "nested": 0,
+    "updated": "Latest scan results per server. Updated 2026-11-04 10:41 UTC." }
+
+~30 s later:
+  swaps: 2, sameDocument: true
+  HTMX requests for "/" at t=30 s and t=60 s after load:
+    encoded body 1121 bytes each (fragment), full page load: 3193 bytes
+
+Network log:
+  GET http://127.0.0.1:38131/                  -> 200 OK   (page load)
+  GET http://127.0.0.1:38131/static/htmx.min.js -> 200 OK
+  GET http://127.0.0.1:38131/                  -> 200 OK   (HTMX refresh, 30 s)
+  GET http://127.0.0.1:38131/                  -> 200 OK   (HTMX refresh, 60 s)
+
+Detail page /server/a1 after 33 s:
+  { "sameDocument": true, "swaps": 1, "h1": 1, "polls": 1,
+    "rows": ["Critical firewall_ufw_active", "Pass ssh_permit_root_login"] }

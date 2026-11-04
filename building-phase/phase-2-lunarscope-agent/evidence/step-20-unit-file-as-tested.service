@@ -1,0 +1,48 @@
+[Unit]
+Description=Lunarscope security scan agent
+Documentation=https://github.com/cybermoon-nl/lunarscope-agent
+Wants=network-online.target
+After=network-online.target
+# Stop restarting after 5 failed starts in 5 minutes (e.g. a broken config).
+StartLimitIntervalSec=300
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=lunarscope
+Group=lunarscope
+ExecStart=/usr/local/bin/lunarscope-agent --config /etc/lunarscope/config.toml
+Restart=on-failure
+RestartSec=10
+
+# Hardening: the agent only reads files, runs read-only commands
+# (systemctl is-active, apt-get -s) and makes outbound HTTPS requests.
+NoNewPrivileges=true
+CapabilityBoundingSet=
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectHostname=true
+RestrictSUIDSGID=true
+RestrictRealtime=true
+RestrictNamespaces=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+SystemCallErrorNumber=EPERM
+ProtectProc=invisible
+RemoveIPC=true
+UMask=0077
+# AF_UNIX is needed for systemctl (D-Bus), AF_INET/AF_INET6 for the master.
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+
+[Install]
+WantedBy=multi-user.target
