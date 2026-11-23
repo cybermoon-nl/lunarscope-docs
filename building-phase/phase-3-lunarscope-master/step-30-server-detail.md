@@ -4,6 +4,10 @@
 **Date:** 2026-11-04
 **Status:** Done
 
+> **Update 2026-11-09:** The server page uses the same stale rule as the dashboard, which is **25 h** since master v0.2.0 (it was 2 h). See [change-0.2.0-daily-scan-time.md](../phase-2-lunarscope-agent/change-0.2.0-daily-scan-time.md).
+
+> **Update 2026-11-16:** Since master v0.2.0 this page needs a login, like the dashboard. See [change-0.2.0-dashboard-login.md](change-0.2.0-dashboard-login.md).
+
 ## Goal
 
 Query all findings of one agent, sorted by severity, and render them in a

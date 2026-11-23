@@ -4,6 +4,8 @@
 **Date:** 2026-10-29
 **Status:** Done
 
+> **Update 2026-11-09:** Since agent v0.2.0 the interval timer described here is gone. The agent scans at startup and then once a day at `scan_time` (UTC), using `next_scan()` and `sleep_until()` instead of `tokio::time::interval`. See [change-0.2.0-daily-scan-time.md](change-0.2.0-daily-scan-time.md).
+
 ## Goal
 
 Wrap the scan cycle in `tokio::time::interval(Duration::from_secs(config.interval_seconds))`

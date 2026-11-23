@@ -2,6 +2,8 @@
 
 **Last updated:** 2026-10-29 (step 21)
 
+> **Update 2026-11-09:** This page describes v0.1.0 (33 tests). v0.1.1 added 2 tests ([fix-0.1.1-ca-certificates.md](fix-0.1.1-ca-certificates.md)). v0.2.0 replaced the interval tests with `scan_time` and schedule tests, for **42** in total, with 7 more mutation checks ([change-0.2.0-daily-scan-time.md](change-0.2.0-daily-scan-time.md)).
+
 The agent is a binary crate. Its tests are `#[cfg(test)]` modules in each
 source file: 12 in `config.rs`, 10 in `sender.rs`, 11 in
 `main.rs`. Total **33**.
