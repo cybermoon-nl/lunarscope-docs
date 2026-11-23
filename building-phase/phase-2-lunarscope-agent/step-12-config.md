@@ -4,6 +4,10 @@
 **Date:** 2026-10-29
 **Status:** Done
 
+> **Update 2026-11-09:** `interval_seconds` and `MIN_INTERVAL_SECONDS` were replaced by `scan_time = "HH:MM"` (UTC) in agent v0.2.0. The tests named below for the interval were removed or changed. See [change-0.2.0-daily-scan-time.md](change-0.2.0-daily-scan-time.md).
+
+> **Update 2026-11-16:** Since agent v0.3.0 `config.toml` only has `agent_id`, `api_key` and `master_url`; the scans and the scan time come from the master. See [change-0.3.0-agent-management.md](../phase-3-lunarscope-master/change-0.3.0-agent-management.md).
+
 ## Goal
 
 `src/config.rs` with `struct Config { agent_id, api_key, master_url,

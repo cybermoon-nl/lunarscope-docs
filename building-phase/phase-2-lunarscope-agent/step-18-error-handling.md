@@ -4,6 +4,8 @@
 **Date:** 2026-10-29
 **Status:** Done
 
+> **Update 2026-11-09:** The `interval_seconds` error example below no longer exists in agent v0.2.0. A bad `scan_time` or an old `interval_seconds` key is now a `Parse` error, see [change-0.2.0-daily-scan-time.md](change-0.2.0-daily-scan-time.md). The rest of this step is unchanged.
+
 ## Goal
 
 No `.unwrap()` on anything that can fail at runtime; use `?` or log with

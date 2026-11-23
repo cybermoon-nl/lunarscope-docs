@@ -4,6 +4,10 @@
 **Date:** 2026-10-29
 **Status:** Done
 
+> **Update 2026-11-09:** Since agent v0.2.0 the example config has `scan_time = "02:00"` (daily, UTC) instead of `interval_seconds = 3600`. See [change-0.2.0-daily-scan-time.md](change-0.2.0-daily-scan-time.md).
+
+> **Update 2026-11-16:** Since agent v0.3.0 the example config has no `scan_time` or `[modules]` any more; they are set per agent on the master, and the master's install script writes this file. See [change-0.3.0-agent-management.md](../phase-3-lunarscope-master/change-0.3.0-agent-management.md).
+
 ## Goal
 
 An example `config.toml` with the three modules enabled and a placeholder

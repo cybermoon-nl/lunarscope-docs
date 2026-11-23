@@ -4,6 +4,8 @@
 **Date:** 2026-11-04
 **Status:** Done
 
+> **Update 2026-11-16:** Since master v0.2.0 the dashboard pages (`/`, `/server/{agent_id}`) need a login, and the router has `/login` and `/logout`. The unit file starts the master with `--password-file /etc/lunarscope/dashboard-password`. The Caddy example below is unchanged: the master does the login itself. See [change-0.2.0-dashboard-login.md](change-0.2.0-dashboard-login.md).
+
 ## Goal
 
 Combine all routes in `main.rs` (`Router::new().route("/", get(dashboard))

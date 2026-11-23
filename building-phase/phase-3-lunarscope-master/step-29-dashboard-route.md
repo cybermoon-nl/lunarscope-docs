@@ -4,6 +4,10 @@
 **Date:** 2026-11-04
 **Status:** Done
 
+> **Update 2026-11-09:** Since master v0.2.0 `STALE_AFTER_SECONDS` is **25 h** instead of 2 h, because agents scan once a day (agent v0.2.0). Test `daily_agent_is_stale_only_after_a_missed_scan` was added. See [change-0.2.0-daily-scan-time.md](../phase-2-lunarscope-agent/change-0.2.0-daily-scan-time.md).
+
+> **Update 2026-11-16:** Since master v0.2.0 the dashboard needs a login (`--password-file`); without a session `GET /` redirects to `/login`. See [change-0.2.0-dashboard-login.md](change-0.2.0-dashboard-login.md).
+
 ## Goal
 
 `src/routes/dashboard.rs`: query the latest scan results per agent, render

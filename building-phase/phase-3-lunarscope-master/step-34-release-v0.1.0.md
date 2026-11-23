@@ -4,6 +4,8 @@
 **Date:** 2026-11-04
 **Status:** Done — committed as `3ee83ee` and tagged `v0.1.0` on 2026-11-04 12:12 (CET), pushed to GitHub. Docs committed as `7ec4a5a` (12:27).
 
+> **Update 2026-11-16:** v0.2.0 adds a dashboard login and the 25 h stale limit; see [change-0.2.0-dashboard-login.md](change-0.2.0-dashboard-login.md).
+
 ## Final checks
 
 Run from a clean state (`cargo clean`) with `--locked`:
