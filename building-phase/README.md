@@ -17,6 +17,7 @@ it was verified.
 - [Fix 0.6.1 — Caddy proxies to port 3000](phase-3-lunarscope-master/fix-0.6.1-caddy-port.md): the Caddyfile pointed at the dev port 3030 while the service listens on 3000 (502 on a fresh install); a test now keeps them equal.
 - [Fix 0.6.1 — Semgrep blocks the build](phase-3-lunarscope-master/fix-0.6.1-semgrep-blocking.md): `|| true` removed in the CI of master, agent and modules; findings 47/18/17 fixed to 0 (pinned actions, Dependabot cooldown, test secrets, one rule excluded).
 - [Change 0.6.1 — CSRF tokens](phase-3-lunarscope-master/change-0.6.1-csrf-tokens.md): every dashboard change (24 forms, HTMX, logout) needs a per-session token (hash of the session token); 403 without it, 413 for too big bodies; 10 mutation checks.
+- [Fix 0.6.1 — CI on the self-hosted runner, vulnerable dependencies](phase-3-lunarscope-master/fix-0.6.1-ci-runner-and-dependencies.md): Docker and workspace ownership on the runner, gitleaks false positive, `libsqlite3-sys` 0.40 and `url` 2.5.9 (two advisories), token for the private modules repo, `deny.toml` for modules.
 
 ## Re-checks
 
