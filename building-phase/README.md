@@ -18,6 +18,9 @@ it was verified.
 - [Fix 0.6.1 — Semgrep blocks the build](phase-3-lunarscope-master/fix-0.6.1-semgrep-blocking.md): `|| true` removed in the CI of master, agent and modules; findings 47/18/17 fixed to 0 (pinned actions, Dependabot cooldown, test secrets, one rule excluded).
 - [Change 0.6.1 — CSRF tokens](phase-3-lunarscope-master/change-0.6.1-csrf-tokens.md): every dashboard change (24 forms, HTMX, logout) needs a per-session token (hash of the session token); 403 without it, 413 for too big bodies; 10 mutation checks.
 - [Fix 0.6.1 — CI on the self-hosted runner, vulnerable dependencies](phase-3-lunarscope-master/fix-0.6.1-ci-runner-and-dependencies.md): Docker and workspace ownership on the runner, gitleaks false positive, `libsqlite3-sys` 0.40 and `url` 2.5.9 (two advisories), token for the private modules repo, `deny.toml` for modules.
+- [Change 0.7.0 — SMTP server from a config file](phase-3-lunarscope-master/change-0.7.0-smtp-config-file.md): `--smtp-file /etc/lunarscope/smtp.toml` (mode 640 checked) keeps the SMTP server and password out of the database; the page shows the server read-only; 4 mutation checks (one needed an extra test); not tried on a real SMTP server.
+- [Change 0.2.0 — `lunarscope_scan` (modules 0.2.0, master 0.7.0, agent 0.5.0)](phase-1-lunarscope-modules/change-0.2.0-lunarscope-scan.md): Lunarscope checks its own installation (11 checks for agent and master), migration 0010 and EN/NL texts in the master, agent dependency; 9 mutation checks, all caught.
+- [Live test 2026-11-24 — agent self-update and two-step login](phase-3-lunarscope-master/test-2026-11-24-agent-update-and-mfa.md): signed update 0.5.0 to 0.5.1 with a throwaway key and four refusal cases; MFA with an independent TOTP and QR scans; real phone and SMTP not tested.
 
 ## Re-checks
 
