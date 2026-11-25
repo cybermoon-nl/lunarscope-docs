@@ -24,6 +24,7 @@ it was verified.
 - [Change 0.7.1 — the weekly report as an HTML mail](phase-3-lunarscope-master/change-0.7.1-html-mail.md): verdict box, counts per severity, score per server and "Fix these first" cards with advice; multipart/alternative with the text as fallback, tables and inline styles, no images, everything escaped; 7 mutation checks (one needed an extra test); not tried in real mail programs.
 - [Change 0.8.0 — the e-mail server only in the config file](phase-3-lunarscope-master/change-0.8.0-email-server-only-in-file.md): server (host, login, sender) only from `--smtp-file`, the page sets recipients, on/off, day, time and language and shows only the sender address; migration 0011 deletes server settings from the database; fixes the language radio that showed the dashboard language; 6 mutation checks (two needed an extra assertion or test).
 - [Fix 0.8.0 — secrets can't end up in git](phase-3-lunarscope-master/fix-0.8.0-secrets-out-of-git.md): `.gitignore` for `smtp.toml`, keys and tokens in every repo, gitleaks rules in CI (also `git add -f` and filled-in copies), the demo sync skips them.
+- [Change 0.9.0 — the e-mail report per user](phase-3-lunarscope-master/change-0.9.0-email-reports-per-user.md): every user sets their own report on the Account page (table `email_reports`, migration 0012 gives the shared report to the first admin), times follow the time format of Settings → General, new option "every 1st of the month", admin overview of all reports; 8 mutation checks (one needed an extra test).
 
 ## Re-checks
 

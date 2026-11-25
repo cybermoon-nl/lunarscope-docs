@@ -83,3 +83,13 @@ Changes to the demo itself:
 
 Sync result: demo master 0.8.0 (374 tests; synced again after the two extra tests: 375), demo agent 0.5.1 (77 tests), both
 release builds with `--locked` OK, banner and port 3040 present.
+
+## Update 2026-11-25 (2): demo 0.9.0
+
+The demo follows master 0.9.0 ([change-0.9.0-email-reports-per-user.md](change-0.9.0-email-reports-per-user.md)):
+every user sets their own e-mail report on the Account page, the times follow
+the time format of Settings → General, and there is an "every 1st of the
+month" option. No change to the demo patches were needed.
+
+Sync result: demo master 0.9.0 (381 tests), demo agent 0.5.1; the script
+ended with `Done: demo master version = "0.9.0", agent version = "0.5.1"`.
