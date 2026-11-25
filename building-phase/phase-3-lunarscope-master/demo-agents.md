@@ -105,3 +105,21 @@ script wasn't run again, because the four demo containers of the
 `lunarscope` service were running and the script recreates them. Run it
 yourself after `sudo systemctl restart lunarscope`:
 `LUNARSCOPE_USER=admin scripts/demo-agents.sh`.
+
+## Update 2026-11-25: two-step login and CSRF
+
+Since master 0.6.0/0.6.1 the script could no longer log in or make changes:
+with two-step login on, the password step only gives the code-step cookie,
+and every change needs the session's CSRF token.
+
+- `login` now asks for the code from the authenticator app when the master
+  asks for it (or takes it from `LUNARSCOPE_CODE`) and posts it to
+  `/login/mfa`. A wrong or reused code stops the script with a clear message.
+- `page` sends `X-CSRF-Token`: the SHA-256 of `csrf:` and the session token,
+  as the master computes it.
+
+Checked against a test master (127.0.0.1:3078, temporary database, admin with
+two-step login): login with a code from an independent TOTP script works; a
+POST with the token gets through to the handler; the same POST without it
+gets 403; a wrong code (`000000`) stops with "the code for admin was not
+accepted".
