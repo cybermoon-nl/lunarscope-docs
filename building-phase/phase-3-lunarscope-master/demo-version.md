@@ -66,3 +66,20 @@ stop when a patch no longer fits, runs the 284 tests on the copy and only
 then replaces `master/` and `agent/`. Used three times for 0.5.0
 ([change-0.5.0-ui-feedback.md](change-0.5.0-ui-feedback.md)); each run:
 tests green, banner present, `demo-agents.sh` on port 3040.
+
+## Update 2026-11-25: demo 0.8.0
+
+The demo follows master 0.8.0 ([change-0.8.0-email-server-only-in-file.md](change-0.8.0-email-server-only-in-file.md)).
+Changes to the demo itself:
+
+- `sync-from-master.sh` now copies `deploy/` into its work folder and patches
+  the Caddy test in `master/src/main.rs` to read
+  `../../deploy/lunarscope-demo.service` and `../../deploy/Caddyfile`,
+  because the real unit file is removed in the demo.
+- `deploy/lunarscope-demo.service` passes `--smtp-file
+  /etc/lunarscope-demo/smtp.toml`.
+- The README has an "E-mail (optional)" paragraph: without that file the
+  e-mail page shows a notice and nothing is sent.
+
+Sync result: demo master 0.8.0 (374 tests; synced again after the two extra tests: 375), demo agent 0.5.1 (77 tests), both
+release builds with `--locked` OK, banner and port 3040 present.

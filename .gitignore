@@ -1,2 +1,11 @@
 SQ3/target/
 SQ6/target/
+
+# Secrets never go into git. The real ones live on the server
+# (/etc/lunarscope/...) or, for the update key, in ~/.config/lunarscope.
+# The examples (*.example) are fine.
+smtp.toml
+*.smtp.toml
+admin-token
+dashboard-password
+update-signing.key

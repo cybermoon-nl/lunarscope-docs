@@ -78,3 +78,16 @@ phone; `zbarimg` (in a throwaway container) reads the QR codes.
 - **A real SMTP server** for the e-mail report and the SMTP file
   ([change 0.7.0](change-0.7.0-smtp-config-file.md)).
 - The update with the real release key: none exists yet.
+
+## Follow-up 2026-11-25: real key, real phone
+
+Done by the user on the development master (`lunarscope` service, 3030),
+after the tests above:
+
+| Step | Result |
+|------|--------|
+| Update key made with `update-keygen ~/.config/lunarscope`; public key committed in `update-key.pub` of the agent | Every agent build since then has the key built in |
+| Four demo agents (web-01, db-01, legacy-01, dev-01) installed with agent 0.5.0 through `scripts/demo-agents.sh` (now with two-step login and CSRF) | All four on 0.5.0 |
+| Agent 0.5.1 built, signed locally with `update-sign`, master restarted (signed update 0.5.1) | Offered on Settings → Lunarscope updates |
+| Update for one agent, then for all | All four agents on **0.5.1** |
+| Two-step login with the authenticator app on a real phone | Works |
